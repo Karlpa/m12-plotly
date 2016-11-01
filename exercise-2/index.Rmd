@@ -1,0 +1,8 @@
+```{r echo = FALSE}
+names <- c("John", "Bill", "Travis")
+ages <- c("15", "50", "84")
+datum <- data.frame(names, ages)
+
+plot_ly(datum, x = ~names, y = ~ages, type="scatter", mode = "text", text = ~names, textposition = "middle right") %>% 
+  layout(title = 'Ages n shit I dunno')
+```
