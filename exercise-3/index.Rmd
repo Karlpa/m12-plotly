@@ -1,0 +1,24 @@
+```{r echo=FALSE}
+library(plotly)
+library(dplyr)
+data(midwest)
+plot_ly(data = midwest, x = ~percollege, color = ~state, type = "box")
+
+num1 <- 1:10
+num2 <- 1:10
+nums <- data.frame(num1, num2)
+shitty.plot <- plot_ly(nums, x = ~num1, type = "scatter")
+shitty.plot
+
+styled.scatterplot <- plot_ly(nums, x = ~num1, type = "scatter", marker = list(size = 10, color = "red", line = list(color = "blue", width = 2))) %>% 
+  layout(title = "Crazy Numbers Bruh!", 
+         xaxis = list(title = "Some crazy numbers",
+        zeroline = FALSE),
+        yaxis = list(title = "Some even crazier numbers", zeroline = FALSE)
+         )
+styled.scatterplot
+
+diamond.data <- diamonds[sample(nrow(diamonds), 1000), ]
+
+plot_ly(diamond.data, x = ~carat, y = ~price, z = ~depth) %>% add_markers(text = ~paste("Claryity:", clarity))
+```
