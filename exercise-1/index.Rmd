@@ -1,7 +1,7 @@
 `r library(plotly)`
 ```{r echo=FALSE}
-df <- read.csv("https://raw.githubusercontent.com/plotly/datasets/master/2011_us_ag_exports.csv")
-df$hover <- with(df, paste(state, '<br>', "Beef", beef, "Dairy", dairy, "<br>",
+test <- read.csv("https://raw.githubusercontent.com/plotly/datasets/master/2011_us_ag_exports.csv")
+test$hover <- with(test, paste(state, '<br>', "Beef", beef, "Dairy", dairy, "<br>",
                            "Fruits", total.fruits, "Veggies", total.veggies,
                            "<br>", "Wheat", wheat, "Corn", corn))
 # give state boundaries a white border
@@ -14,7 +14,7 @@ g <- list(
   lakecolor = toRGB('white')
 )
 
-plot_geo(df, locationmode = 'USA-states') %>%
+plot_geo(test, locationmode = 'USA-states') %>%
   add_trace(
     z = ~total.exports, text = ~hover, locations = ~code,
     color = ~total.exports, colors = 'Purples'
